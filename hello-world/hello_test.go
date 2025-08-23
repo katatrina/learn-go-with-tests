@@ -1,7 +1,9 @@
 // hello_test.go
-package main
+package helloworld
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestHello(t *testing.T) {
 	// Sub test 1
