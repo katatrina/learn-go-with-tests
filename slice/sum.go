@@ -1,0 +1,34 @@
+package slice
+
+func Sum(numbers []int) (sum int) {
+	for _, num := range numbers {
+		sum += num
+	}
+	
+	return
+}
+
+func SumAll(numbersToSum ...[]int) []int {
+	sums := make([]int, 0, len(numbersToSum))
+	
+	for _, numbers := range numbersToSum {
+		sums = append(sums, Sum(numbers))
+	}
+	
+	return sums
+}
+
+func SumAllTails(numbersToSum ...[]int) []int {
+	sums := make([]int, 0, len(numbersToSum))
+	for _, numbers := range numbersToSum {
+		if len(numbers) == 0 {
+			sums = append(sums, 0)
+			continue
+		}
+		
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
+	
+	return sums
+}
